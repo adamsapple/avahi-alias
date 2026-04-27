@@ -1,0 +1,14 @@
+[Unit]
+Description=Publish %I.%H.local as alias for %H.local via mdns
+Requires=avahi-daemon.service
+After=avahi-daemon.service
+
+[Service]
+Type=simple
+ExecStart=/home/pi/Documents/services/avahi-alias/avahi-alias.sh wlan0 octoprint
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+

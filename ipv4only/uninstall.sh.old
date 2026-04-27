@@ -1,7 +1,9 @@
 #!/usr/bin/sh
 
-SERVICE_FILE="avahi-alias@sampledomain.service"
+EXEC_FILE="avahi-alias.sh"
+SERVICE_FILE="avahi-alias.service"
 SERVICE_FILE_PATH="/etc/systemd/system/$SERVICE_FILE"
+
 
 # echo $SERVICE_FILE
 
@@ -14,6 +16,7 @@ if [ -e $SERVICE_FILE_PATH ]; then
 
     echo remove service file
     rm $SERVICE_FILE_PATH
+    rm /usr/local/bin/$EXEC_FILE
 else
     echo $SERVICE_FILE is not exist.
 fi
