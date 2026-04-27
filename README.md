@@ -32,3 +32,9 @@ sudo ./install.sh mydomain
 # Usage: ./uninstall.sh <domain_alias>
 sudo ./uninstall.sh mydomain
 ```
+
+## List.
+```
+systemctl list-unit-files -t service | grep avahi-alias
+avahi-alias@mydomain.service                enabled         enabled
+```
