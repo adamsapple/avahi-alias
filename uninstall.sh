@@ -3,8 +3,6 @@
 DOMAIN_ALIAS=$1
 SERVICE_FILE="avahi-alias@${DOMAIN_ALIAS}.service"
 SERVICE_FILE_PATH="/etc/systemd/system/$SERVICE_FILE"
-CONF_FILE="avahi-alias@${DOMAIN_ALIAS}"
-CONF_FILE_PATH="/etc/default/$CONF_FILE"
 
 if [ -z "$1" ]; then
   echo "Error: require domain name. <arg1>"
@@ -22,11 +20,6 @@ if [ -e $SERVICE_FILE_PATH ]; then
     rm $SERVICE_FILE_PATH
 else
     echo $SERVICE_FILE is not exist.
-fi
-
-if [ -e $CONF_FILE_PATH ]; then    
-    echo remove config file
-    rm $CONF_FILE_PATH
 fi
 
 echo $SERVICE_FILE uninstall finished.
